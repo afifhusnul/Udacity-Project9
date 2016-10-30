@@ -1,0 +1,86 @@
+<resources>
+    <string name="app_name">Project9 - HabitTrack</string>
+    <!-- Label for overflow menu option that inserts fake habit data into the app [CHAR LIMIT=20] -->
+    <string name="action_insert_dummy_data">Insert Dummy Data</string>
+
+    <!-- Label for overflow menu option that deletes all habit data in the app [CHAR LIMIT=20] -->
+    <string name="action_delete_all_entries">Delete All Activities</string>
+
+    <!-- Title text for the empty view, which describes the empty dog house image [CHAR LIMIT=50] -->
+    <string name="empty_view_title_text">It\'s a bit lonely here...</string>
+
+    <!-- Subtitle text for the empty view that prompts the user to add a habitt [CHAR LIMIT=50] -->
+    <string name="empty_view_subtitle_text">Get started by adding a habit</string>
+
+    <!-- Title for the activity to add a new habitt [CHAR LIMIT=20] -->
+    <string name="editor_activity_title_new_habit">Add a activity</string>
+
+    <!-- Title for the activity to edit an existing habit [CHAR LIMIT=20] -->
+    <string name="editor_activity_title_edit_habit">Edit activity</string>
+
+    <!-- Label for editor menu option to save habit and leave editor [CHAR LIMIT=20] -->
+    <string name="action_save">Save</string>
+
+    <!-- Label for editor overflow menu option that deletes the current habit [CHAR LIMIT=20] -->
+    <string name="action_delete">Delete</string>
+
+    <!-- Toast message in editor when new hait has been successfully inserted [CHAR LIMIT=NONE] -->
+    <string name="editor_insert_activity_successful">Activity saved</string>
+
+    <!-- Toast message in editor when new habit has failed to be inserted [CHAR LIMIT=NONE] -->
+    <string name="editor_insert_habit_failed">Error with saving Activity</string>
+
+    <!-- Toast message in editor when current habi was successfully updated [CHAR LIMIT=NONE] -->
+    <string name="editor_update_habit_successful">Activity updated</string>
+
+    <!-- Toast message in editor when current habit has failed to be updated [CHAR LIMIT=NONE] -->
+    <string name="editor_update_habit_failed">Error with updating activity</string>
+
+    <!-- Dialog message when user is leaving editor but hasn't saved changes [CHAR LIMIT=NONE] -->
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+
+    <!-- Dialog button text for the option to discard a user's changes [CHAR LIMIT=20] -->
+    <string name="discard">Discard</string>
+
+    <!-- Dialog button text for the option to keep editing the current habit [CHAR LIMIT=20] -->
+    <string name="keep_editing">Keep Editing</string>
+
+    <!-- Toast message in editor when current habit was successfully deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_habit_successful">Activity deleted</string>
+
+    <!-- Toast message in editor when current habit has failed to be deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_habit_failed">Error with deleting activity</string>
+
+    <!-- Dialog message to ask the user to confirm deleting the current habit [CHAR LIMIT=NONE] -->
+    <string name="delete_dialog_msg">Delete this Activity?</string>
+
+    <!-- Dialog button text for the option to confirm deleting the current habit [CHAR LIMIT=20] -->
+    <string name="delete">Delete</string>
+
+    <!-- Dialog button text for the option to cancel deletion of the current habit [CHAR LIMIT=20] -->
+    <string name="cancel">Cancel</string>
+
+    <!-- Label for overview category of attributes in the editor [CHAR LIMIT=30] -->
+    <string name="category_overview">Overview</string>
+
+    <!-- Label for time information in the editor [CHAR LIMIT=30] -->
+    <string name="category_time">Time</string>
+
+
+    <!-- Text hint for name field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_habit_name">Name</string>
+
+    <!-- Text hint for Description field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_habit_desc">Description</string>
+
+
+    <!-- Label for dropdown menu option if Morning Time[CHAR LIMIT=20] -->
+    <string name="time_morning">Morning</string>
+
+    <!-- Label for dropdown menu option if Afternoon Time [CHAR LIMIT=20] -->
+    <string name="time_afternoon">Afternoon</string>
+
+    <!-- Label for dropdown menu option if EveningTime [CHAR LIMIT=20] -->
+    <string name="time_evening">Evening</string>
+
+</resources>
