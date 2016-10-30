@@ -144,11 +144,11 @@ public class MainActivity extends AppCompatActivity {
      * Helper method to delete all habits in the database.
      */
     private void deleteAllHabits() {
-//        int rowsDeleted = getContentResolver().delete(HabitContract.HabitEntry.CONTENT_URI, null, null);
-//        Log.v("CatalogActivity", rowsDeleted + " rows deleted from habits database");
         //gets the database to writing mode
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        //Execute delete all data
         db.delete(TABLE_NAME,null,null);
+        //Close trx
         db.close();
     }
 
