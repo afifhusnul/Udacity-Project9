@@ -49,10 +49,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Helper method to insert hardcoded habit data into the database for debugging purposes only
+     */
+    private void insertHabit() {
+        //gets the database to writing mode
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+        //Create a ContentValues object where column names are the key
+        // and habit attributes are the values
+        ContentValues values = new ContentValues();
+        values.put(HabitContract.HabitEntry.COLUMN_HABIT_NAME, "Swimming");
+        values.put(HabitContract.HabitEntry.COLUMN_HABIT_DESC, "Swimming in the morning 7:AM");
+        values.put(HabitContract.HabitEntry.COLUMN_HABIT_TIME, 0);
+
+        // insert a new row of habits into the database, returning the id of that new row.
+        // the first argument for db.insert() is the habit table name.
+        // the second argument provides the name of the column in which the framework
+        // can insert NULL in the event that the ContentsValue is empty
+        // (if this is set to "null", then the framework will not insert a row when there is no value)
+        // The third argument id the ContentsValue object containing the info for teh habit.
+        long newRowId = db.insert(TABLE_NAME, null, values);
+    }
+
+    /**
      * Temporary helper method to display information in the onscreen TextView about
      * the state of the habit database.
      */
-    private void displayDatabaseInfo() {
+    private Cursor displayDatabaseInfo() {
         // create and/or open a database to read it from
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
@@ -89,30 +112,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         cursor.close();
+        return cursor;
     }
 
-    /**
-     * Helper method to insert hardcoded habit data into the database for debugging purposes only
-     */
-    private void insertHabit() {
-        //gets the database to writing mode
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
 
-        //Create a ContentValues object where column names are the key
-        // and habit attributes are the values
-        ContentValues values = new ContentValues();
-        values.put(HabitContract.HabitEntry.COLUMN_HABIT_NAME, "Swimming");
-        values.put(HabitContract.HabitEntry.COLUMN_HABIT_DESC, "Swimming in the morning 7:AM");
-        values.put(HabitContract.HabitEntry.COLUMN_HABIT_TIME, 0);
-
-        // insert a new row of habits into the database, returning the id of that new row.
-        // the first argument for db.insert() is the habit table name.
-        // the second argument provides the name of the column in which the framework
-        // can insert NULL in the event that the ContentsValue is empty
-        // (if this is set to "null", then the framework will not insert a row when there is no value)
-        // The third argument id the ContentsValue object containing the info for teh habit.
-        long newRowId = db.insert(TABLE_NAME, null, values);
-    }
 
     /**
      * Helper method to delete all habits in the database.
