@@ -74,47 +74,21 @@ public class MainActivity extends AppCompatActivity {
                 null,                                   // Don't filter by row groups
                 null);                                  // The sort order
 
+        // As per direction from reviewer, changed as belo
+        // There is a single read method that returns a Cursor object. It should get the data repository in read and use the query()
+        // method to retrieve at least one column of data.
+        // Need to do : Please perform the query in a read() method. The read method should perform the query and return the Cursor obtained.
+
         TextView displayView = (TextView) findViewById(R.id.text_view_habit);
-
-        try {
-            //create a header in the TextView that looks like this:
-            //
-            // The habit table contains <number of rows in Cursor> habits.
-            // _id - name - desc - time
-            //
-            // In the while loop below, iterate through the rows of the cursor and display
-            // the information from each column in this order
-            displayView.setText("The habits table contains " + cursor.getCount() + " habits.\n\n");
-            displayView.append(HabitContract.HabitEntry._ID + " _ " +
-                    HabitContract.HabitEntry.COLUMN_HABIT_NAME + " _ " +
-                    HabitContract.HabitEntry.COLUMN_HABIT_DESC + " _ " +
-                    HabitContract.HabitEntry.COLUMN_HABIT_TIME + "\n");
-
-            // figure out the index of each column
-            int idColumnIndex = cursor.getColumnIndex(HabitContract.HabitEntry._ID);
-            int nameColumnIndex = cursor.getColumnIndex(HabitContract.HabitEntry.COLUMN_HABIT_NAME);
-            int descColumnIndex = cursor.getColumnIndex(HabitContract.HabitEntry.COLUMN_HABIT_DESC);
-            int timeColumnIndex = cursor.getColumnIndex(HabitContract.HabitEntry.COLUMN_HABIT_TIME);
-
-            // iterate through all the returned rows of the cursor
-            while (cursor.moveToNext()) {
-                // Use that index to extract the String or Int value of the word
-                // at the current row the cursor is on.
-                int currentID = cursor.getInt(idColumnIndex);
-                String currentName = cursor.getString(nameColumnIndex);
-                String currentDesc = cursor.getString(descColumnIndex);
-                int currentTime = cursor.getInt(timeColumnIndex);
-                // display the values from each column of the current row in the cursor in the TextView
-                displayView.append(("\n" + currentID + " _ " +
-                        currentName + " _ " +
-                        currentDesc+ " _ " +
-                        currentTime));
+        displayView.setText("The habits table contains " + cursor.getCount() + " habits.\n\n");
+        if( cursor != null) {
+            cursor.moveToFirst();
+            for ( int i = 0; i<cursor.getCount(); i++) {
+                displayView.append("\n"+cursor.getString(0)+"_"+ cursor.getString(1)+"_"+cursor.getString(2)+"_"+cursor.getString(3));
+                cursor.moveToNext();
             }
-        } finally {
-            // always close the cursor when you are done reading from it.
-            // this releases resources and make it invalid
-            cursor.close();
         }
+        cursor.close();
     }
 
     /**
